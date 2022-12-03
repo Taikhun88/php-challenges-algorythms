@@ -767,8 +767,9 @@
         <button onclick="displayContent('')" id="" class="btn-toggle">Voir réponse</button>
         <div class="btn-">
             <?php
-            echo "<h4>Count of positives / sum of negatives</h4>";
-
+            echo "<h4><a href='https://www.codewars.com/kata/576bb71bbbcf0951d5000044'>
+            Count of positives / sum of negatives</a></h4>";
+            
             $input = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15];
 
             if (empty($input) == true) {
@@ -804,49 +805,98 @@
             $xArray = [1, 2, 3];
             $newValue = [];
 
-            for ($i = 0; $i < count($xArray); $i++) { 
+            for ($i = 0; $i < count($xArray); $i++) {
                 $newValue[$i] = $xArray[$i] * 2;
             }
             var_dump($newValue);
-            echo "<br>";            
-            
+            echo "<br>";
+
             echo "<h4><a href='https://www.codewars.com/kata/56676e8fabd2d1ff3000000c/train/php'>A Needle in the Haystack</a></h4>";
 
-            $haystack = ["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"]; 
+            $haystack = ["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"];
 
-            for ($iHaystack = 0; $iHaystack < count($haystack); $iHaystack++) { 
+            for ($iHaystack = 0; $iHaystack < count($haystack); $iHaystack++) {
                 if (in_array("needle", $haystack) == true) {
                     $output = "found the needle at position " . array_search("needle", $haystack);
-                    
-                } 
+                }
             }
             echo $output;
 
-            echo "<br>";            
-            
+            echo "<br>";
+
             echo "<h4><a href='https://www.codewars.com/kata/515e271a311df0350d00000f/train/php'>Square(n) Sum
             </a></h4>";
 
             $data = [1, 2, 2];
             $newDataSquared = [];
 
-            for ($iDataToSquare = 0; $iDataToSquare < count($data); $iDataToSquare++) { 
+            for ($iDataToSquare = 0; $iDataToSquare < count($data); $iDataToSquare++) {
                 // Convert data to GMP square values
                 pow($data[$iDataToSquare], 2);
                 // echo pow($data[$iDataToSquare], 2);
-                
-                $dataSquarredIntoGmp = pow($data[$iDataToSquare], 2);     
-                
+
+                $dataSquarredIntoGmp = pow($data[$iDataToSquare], 2);
+
                 // Convert GMP to Integer
                 $convertGmpToInt = intval($dataSquarredIntoGmp);
 
                 // Updates array with integer values
                 $newDataSquared[$iDataToSquare] = $convertGmpToInt;
-                
+
                 // return $newDataSquared;
             }
             var_dump(array_sum($newDataSquared));
             // sum all value within the new array
+
+            echo "<br>";
+
+            echo "<h4><a href='https://www.codewars.com/kata/5949481f86420f59480000e7/train/php'>Odd or Even?
+            </a></h4>";
+
+            $a = [0, -15, -3, 20];
+
+            if (empty($a) == true) {
+                $a = [0];
+                if (fmod(array_sum($a), 2) == 0) {
+                    echo "even";
+                } else
+                {
+                    echo "odd";
+                }
+            } else 
+            {
+                if (fmod(array_sum($a), 2) == 0) {
+                    echo "even";
+                } else
+                {
+                    echo "odd";
+                }
+            }
+            
+            echo "<br>";
+
+            echo "<h4><a href='https://www.codewars.com/kata/5bb904724c47249b10000131'>Total amount of points</a></h4>";       
+            
+            $games = ["3:1", "2:2", "0:1"];
+            $totalPoints = [];
+
+            for ($iGames = 0; $iGames < count($games); $iGames++) { 
+                $xVsYScoreSplit = str_split($games[$iGames]);
+
+                if ($xVsYScoreSplit[0] > $xVsYScoreSplit[2]) {
+                    $points = 3;
+                    $totalPoints[$iGames] = $points;
+                } elseif ($xVsYScoreSplit[0] < $xVsYScoreSplit[2]) {
+                    $points = 0;
+                    $totalPoints[$iGames] = $points;
+                } else
+                {
+                    $points = 1;
+                    $totalPoints[$iGames] = $points;
+                }
+            }
+            var_dump(array_sum($totalPoints));
+            echo "<br>";
             ?>
 
         </div>
